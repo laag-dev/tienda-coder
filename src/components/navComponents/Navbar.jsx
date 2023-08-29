@@ -1,7 +1,7 @@
 import Category from "./Category";
 import  {CartWidget}  from "./CartWidget";
 import logo from '@/images/logo.png'
-
+import avatar from '@/images/avatar.jpeg'
 
 export const Navbar = () => {
   return (
@@ -27,7 +27,7 @@ export const Navbar = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img src="./img/avatar.jpeg" />
+                <img src={avatar} />
               </div>
             </label>
             <ul
