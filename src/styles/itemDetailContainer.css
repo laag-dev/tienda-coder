@@ -1,0 +1,17 @@
+.itemDetailContainer{
+    box-sizing: border-box;
+    margin-top: 10rem;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: rgb(241, 241, 241);
+    min-height: 70vh;
+}
+
+@media screen and (min-width: 728px){
+    .itemDetailContainer{
+        margin-top: 7.5rem;
+    }
+}
