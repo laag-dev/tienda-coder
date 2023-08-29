@@ -12,8 +12,8 @@ export const Navbar = () => {
         </div>
         <Category
           itemOne ="Accesorios"
-          itemTwo ="Electrónicos"
-          itemThree ="Ropa"
+          itemTwo ="Ropa"
+          itemThree ="Suplementos"
         />
         <div className="flex-none gap-2 m-8">
           <div className="form-control">

@@ -1,5 +1,5 @@
 import React from "react";
-
+import hero from '@/images/hero.jpeg'
 
 export const Hero = () => {
   return (
@@ -7,7 +7,7 @@ export const Hero = () => {
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
           <img
-            src="./img/hero.jpeg"
+            src={hero}
             className="max-w-sm rounded-lg shadow-2xl"
           />
           <div>
