@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Card from "../itemListComponents/Card";
+import Card from "./Card";
 import "../../styles/itemListContainer.css";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -7,10 +7,10 @@ import { useLocation } from "react-router-dom";
 
 
 
-const ItemListContainer = () => {
+const ItemListContainer = ({categoryid}) => {
   const [products, setProducts] = useState([]);
   const { id: categoryName } = useParams();
-  
+ 
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -24,10 +24,11 @@ const ItemListContainer = () => {
         } else {
           setProducts(products);
         }
-      })
+      }) 
       .catch((error) => console.error("Error fetching data:", error));
   }, [categoryName]);
 
+  console.log(products)
   const location = useLocation();
   const isDetailPage = location.pathname.includes("/item/");
 
@@ -42,8 +43,10 @@ const ItemListContainer = () => {
             price={product.price}
             description={product.description}
             isDetailPage={isDetailPage}
+
           />
         </Link>
+        
       ))}
     </div>
   );

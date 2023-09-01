@@ -16,8 +16,8 @@ function App() {
       <Hero />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/category/:id" element={<ItemList />} />
-        <Route exact path="/item/:id" element={<Detail />} />
+        <Route  path="/category/:categoryid" element={<ItemList />} />
+        <Route  path="/item/:itemid" element={<Detail />} />
       </Routes>
       <Footer />
     </BrowserRouter>

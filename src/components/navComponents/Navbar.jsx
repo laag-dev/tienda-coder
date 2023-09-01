@@ -1,7 +1,14 @@
 import Category from "./Category";
-import  {CartWidget}  from "./CartWidget";
-import logo from '@/images/logo.png'
-import avatar from '@/images/avatar.jpeg'
+import { CartWidget } from "./CartWidget";
+import logo from "@/images/logo.png";
+import avatar from "@/images/avatar.jpeg";
+
+const categories = [
+  { name: "electronics" },
+  { name: "jewelery" },
+  { name: "men's clothing" },
+  { name: "women's clothing" },
+];
 
 export const Navbar = () => {
   return (
@@ -10,11 +17,9 @@ export const Navbar = () => {
         <div className="flex-1">
           <img className="w-28 cursor-pointer" src={logo} alt="logo" />
         </div>
-        <Category
-          itemOne ="Accesorios"
-          itemTwo ="Ropa"
-          itemThree ="Suplementos"
-        />
+        {categories.map((category) => (
+          <Category category = {category} />
+        ))}
         <div className="flex-none gap-2 m-8">
           <div className="form-control">
             <input
@@ -23,7 +28,7 @@ export const Navbar = () => {
               className="input input-bordered w-24 md:w-auto"
             />
           </div>
-          <CartWidget/>
+          <CartWidget />
           <div className="dropdown dropdown-end">
             <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
