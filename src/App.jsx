@@ -1,6 +1,9 @@
 import React from "react";
 import { Header } from "./components/Header";
-import { Banner } from "./components/Banner";
+import Footer from "./components/Footer";
+import Card from "./components/itemListComponents/Card";
+
+
 
 /*import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -16,7 +19,10 @@ function App() {
   return (
     <>
     <Header/>
-    <Banner/>
+    <Card/>
+    <Footer/>
+    
+    
     </>
     
     /*<BrowserRouter>

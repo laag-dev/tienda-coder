@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+.navbarLi{
+    @apply font-bold hover:text-[#af8970] hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300;
+}
+
+}
