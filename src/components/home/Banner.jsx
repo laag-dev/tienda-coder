@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import banner0 from "@/images/banner0.png";
-import banner1 from "@/images/banner1.png";
-import banner2 from "@/images/banner2.png";
+import banner0 from "@/assets/banner0.png";
+import banner1 from "@/assets/banner1.png";
+import banner2 from "@/assets/banner2.png";
 
 export const Banner = () => {
   return (

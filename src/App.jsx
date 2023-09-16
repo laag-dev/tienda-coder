@@ -1,41 +1,60 @@
 import React from "react";
-import { Header } from "./components/Header";
-import Footer from "./components/Footer";
-import Card from "./components/itemListComponents/Card";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Outlet,
+} from "react-router-dom";
+import { Navbar } from "./components/navComponents/Navbar";
+import { Footer } from "./components/home/Footer";
+import { Home } from "./pages/Home";
+// import {Cart} from "./pages/Cart";
+import { productsData } from "./api/Api";
 
-
-
-/*import { BrowserRouter, Route, Routes } from "react-router-dom";
-
-import Navbar from "./components/navComponents/Navbar";
-import Hero from "./components/Hero";
-import Footer from "./components/Footer";
-import Detail from "./routes/Detail"
-import Home from "./routes/Home";
-import ItemList from "./routes/ItemList";*/
-
+const Layout = () => {
+  return (
+    <div>
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </div>
+  );
+};
 
 function App() {
   return (
-    <>
-    <Header/>
-    <Card/>
-    <Footer/>
-    
-    
-    </>
-    
-    /*<BrowserRouter>
-      <Navbar />
-      <Hero />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route  path="/category/:categoryid" element={<ItemList />} />
-        <Route  path="/item/:itemid" element={<Detail />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>*/
+    <div className="font-bodyFont">
+      <Router>
+        {/* Define your header/navigation here */}
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            {/* Add links for Cart and Login here */}
+          </ul>
+        </nav>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Layout />
+            }
+          >
+            <Route
+              index
+              element={
+                <Home />
+              }
+               loader={() => import("./api/Api").then((module) => module.productsData())}
+            />
+            {/* Add routes for Cart and Login here */}
+          </Route>
+        </Routes>
+      </Router>
+    </div>
   );
 }
+
 
 export default App;

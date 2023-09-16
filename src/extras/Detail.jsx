@@ -1,7 +1,4 @@
-import React, { useState, useEffect } from "react";
-import Card from "../components/itemListComponents/Card";
-import "../styles/itemDetailContainer.css"
-import { useParams } from "react-router-dom";
+
 
 const Detail = () => {
   const [product, setProduct] = useState(null);

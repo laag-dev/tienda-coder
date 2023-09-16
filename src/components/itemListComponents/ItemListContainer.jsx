@@ -1,55 +1,26 @@
-import React, { useState, useEffect } from "react";
-import Card from "./Card";
-import "../../styles/itemListContainer.css";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import React from "react";
+import { Card } from './Card';
 
+export const ItemListContainer = () => {
 
-
-const ItemListContainer = ({categoryid}) => {
-  const [products, setProducts] = useState([]);
-  const { id: categoryName } = useParams();
- 
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((products) => {
-        if (categoryName) {
-          const filteredProducts = products.filter(
-            (product) => product.category === categoryName
-          );
-          setProducts(filteredProducts);
-        } else {
-          setProducts(products);
-        }
-      }) 
-      .catch((error) => console.error("Error fetching data:", error));
-  }, [categoryName]);
-
-  console.log(products)
-  const location = useLocation();
-  const isDetailPage = location.pathname.includes("/item/");
-
+  
   return (
-    <div className="itemListContainer">
-      {products.map((product) => (
-        <Link key={product.id} to={`/item/${product.id}`}>
-          <Card
-          styleCard="card"
-            src={product.image}
-            name={product.title}
-            price={product.price}
-            description={product.description}
-            isDetailPage={isDetailPage}
-
-          />
-        </Link>
-        
-      ))}
-    </div>
+    <>
+      <div className=" bg-white py-10">
+        <div className="flex flex-col items-center gap-4">
+          <h1 className="text-2x1 bg-black font-bold text-white py-2 w-80 text-center">
+            ¡Compra cuando quieras!
+          </h1>
+          <span className="w-20 h-[3px] bg-black"></span>
+          <p className="max-w-[700px] text-black text-center">
+            Tienda coder, es la mejor tienda falsa de la web. Escoge tus
+            productos.
+          </p>
+        </div>
+        <div className="max-w-screen-xl mx-auto py-10">
+        <Card/>
+        </div>
+      </div>
+    </>
   );
 };
-
-export default ItemListContainer;
