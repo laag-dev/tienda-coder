@@ -2,13 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components{
-.navbarLi{
+@layer components {
+  .navbarLi {
     @apply font-bold hover:text-[#af8970] hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300;
-}
+  }
 
-}
-
-.nav__active {
+  .nav__active {
     font-weight: 600;
+  }
+  .button {
+    @apply btn bg-[#AF8970] text-black hover:bg-black hover:text-white;
+  }
 }

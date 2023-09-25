@@ -10,9 +10,6 @@ export const Layout = () => {
        <div>
         <Routers />
       </div> 
-      <div>
-      <Services/>
-      </div>
       <Footer />
     </div>
   );
