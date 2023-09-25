@@ -7,17 +7,20 @@ import { filterProps } from "framer-motion";
 import { ProductsList } from "../components/products/ProductsList";
 
 export const Home = () => {
-  // Definir el estado local para data
+  // Defining local state for 
 
-  const [data, setData] = useState(products);
-
+  const [trendingProducts, setTrendingProducts,] = useState([]);
+  const [bestSalesProducts, setBestSalesProducts,] = useState([]);
   // Home page + year
   const year = new Date().getFullYear();
 
-  // Filtrar los productos y actualizar el estado de data
+  // Filtering the products and updating the data state
   useEffect(() => {
-    const filteredProducts = products.filter((item) => item.category === "chair");
-    setData(filteredProducts);
+    const filteredTrendingProducts = products.filter((item) => item.category === "chair");
+    const filteredBestSalesProducts = products.filter((item) => item.category === "sofa");
+
+    setTrendingProducts(filteredTrendingProducts);
+    setBestSalesProducts(filteredBestSalesProducts);
   }, []);
 
 
@@ -64,14 +67,26 @@ export const Home = () => {
           />
         </div>
       </div>
-      < div className="bg-[#f3e9dc] py-8">
+
+      {/* Trending Products Section */}
+      < section className="bg-[#f3e9dc] py-8">
         
           <h1 className="text-center text-5xl font-bold text-black">
             Productos en tendencia
           </h1>
-          <ProductsList data={data} />
+          <ProductsList data={trendingProducts} />
         
-      </div>
+      </section>
+
+      {/* Bestsellers Section */}
+      < section className="bg-[#f3e9dc] py-8">
+        
+          <h1 className="text-center text-5xl font-bold text-black">
+            Los más vendidos
+          </h1>
+          <ProductsList data={bestSalesProducts} />
+        
+      </section>
      
     </div>
   );

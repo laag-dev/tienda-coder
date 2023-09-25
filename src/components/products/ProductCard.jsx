@@ -23,7 +23,7 @@ export const ProductCard = ({item}) => {
         />
       </figure>
       <div className="card-body bg-white ">
-        <h2 className="card-title  text-black"><Link to="/shop/id">{item.productName}</Link></h2>
+        <h2 className="card-title  text-black"><Link to={`/shop/${item.id}`}>{item.productName}</Link></h2>
         <p className="italic text-black font-bold  text-sm">{item.category}</p>
         <p className="text-black  text-xl">{item.shortDesc}</p>
         <p className="font-bold text-black text-xl">${item.price}</p>
