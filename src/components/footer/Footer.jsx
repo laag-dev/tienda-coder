@@ -8,7 +8,7 @@ import { TfiYoutube } from "react-icons/tfi";
 export const Footer = () => {
   return (
     <>
-      <footer className="footer px-10 py-4 border-t bg-black text-white border-base-300">
+      <footer className="footer px-10 py-4 border-t bg-[#404040] text-white border-base-300">
         <aside className="items-center grid-flow-col">
           <img className="w-52" src={laag} alt="logo developer" />
           <p className="ml-4">

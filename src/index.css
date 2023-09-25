@@ -8,3 +8,7 @@
 }
 
 }
+
+.nav__active {
+    font-weight: 600;
+}
