@@ -4,6 +4,7 @@ import avatar from "@/assets/avatar.jpeg";
 import { NavLink } from "react-router-dom";
 import { CartWidget } from "./CartWidget";
 
+
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => {
@@ -24,6 +25,7 @@ export const Navbar = () => {
       display: "Carrito",
     },
   ];
+
 
   return (
     <div className="w-full border-b-[1px] border-gray-950 text-black bg-white sticky top-0 z-50">

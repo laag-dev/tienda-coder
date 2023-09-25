@@ -14,6 +14,10 @@ export const Home = () => {
 
   const [trendingProducts, setTrendingProducts] = useState([]);
   const [bestSalesProducts, setBestSalesProducts] = useState([]);
+  const [mobileProducts, setMobileProducts] = useState([]);
+  const [wirelessProducts, setWirelessProducts] = useState([]);
+  const [popularProducts, setPopularProducts] = useState([]);
+
   // Home page + year
   const year = new Date().getFullYear();
 
@@ -25,9 +29,21 @@ export const Home = () => {
     const filteredBestSalesProducts = products.filter(
       (item) => item.category === "sofa"
     );
+    const filteredMobileProducts = products.filter(
+      (item) => item.category === "mobile"
+    );
+    const filteredWirelessProducts = products.filter(
+      (item) => item.category === "wireless"
+    );
+    const filteredPopularProducts = products.filter(
+      (item) => item.category === "watch"
+    );
 
     setTrendingProducts(filteredTrendingProducts);
     setBestSalesProducts(filteredBestSalesProducts);
+    setMobileProducts(filteredMobileProducts);
+    setWirelessProducts(filteredWirelessProducts);
+    setPopularProducts(filteredPopularProducts);
   }, []);
 
   return (
@@ -76,36 +92,52 @@ export const Home = () => {
       {/* Trending Products Section */}
       <section className="bg-[#f3e9dc] py-8">
       <div className="container mx-auto text-center">
-        <h1
-          
-          className="text-3xl md:text-5xl font-bold text-black mb-4"
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }} // Animación inicial
+          animate={{ opacity: 1, y: 0 }} // Animación al entrar
+          transition={{ duration: 0.5 }} // Duración de la animación
+          className="text-3xl md:text-5xl font-bold text-black mb-2"
         >
           Productos en tendencia
-        </h1>
+        </motion.h1>
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: "30%" }}
+          transition={{ duration: 0.5, delay: 0.5 }} 
+          className="bg-[#af8970] h-1 mx-auto mb-4"
+        ></motion.div>
         <ProductsList data={trendingProducts} />
       </div>
     </section>
 
       {/* Bestsellers Section */}
-      <section className="bg-[#f3e9dc] ">
+      <section className="bg-[#f3e9dc] py-2">
       <div className="container mx-auto text-center">
-        <h1
-          
-          className="text-3xl md:text-5xl font-bold text-black mb-4"
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-3xl md:text-5xl font-bold text-black mb-2"
         >
           Los más vendidos
-        </h1>
+        </motion.h1>
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: "30%" }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="bg-[#af8970]  h-1 mx-auto mb-4"
+        ></motion.div>
         <ProductsList data={bestSalesProducts} />
       </div>
     </section>
 
-      {/* Bestsellers Section */}
+      {/* Limited Offer Section*/}
       <section className="bg-white py-8 text-black">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 items-center">
             <div className="md:col-span-2 lg:col-span-1">
               <div className="h-auto md:h-300 flex flex-col items-center justify-center text-center md:text-left">
-                <h2 className="text-3xl md:text-4xl  mb-4">
+                <h2 className="text-3xl md:text-5xl  mb-4">
                   ¡Oferta limitada!
                 </h2>
                 <h3 className="text-xl md:text-3xl font-semibold mb-4">
@@ -125,6 +157,52 @@ export const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* New arrivals Section */}
+      <section className="bg-[#f3e9dc] py-8">
+      <div className="container mx-auto text-center">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-3xl md:text-5xl font-bold text-black mb-2"
+        >
+          Nuevos productos
+        </motion.h1>
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: "30%" }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="bg-[#af8970]  h-1 mx-auto mb-4"
+        ></motion.div>
+        <div>
+        <ProductsList data={mobileProducts.concat(wirelessProducts)}/>
+        </div>
+      </div>
+    </section>
+
+    {/* Popular categories Section */}
+    <section className="bg-[#f3e9dc] py-8">
+      <div className="container mx-auto text-center">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-3xl md:text-5xl font-bold text-black mb-2"
+        >
+          Categorías populares
+        </motion.h1>
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: "30%" }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="bg-[#af8970]  h-1 mx-auto mb-4"
+        ></motion.div>
+        <div>
+        <ProductsList data={popularProducts}/>
+        </div>
+      </div>
+    </section>
     </div>
   );
 };
