@@ -15,7 +15,7 @@ export const ProductCard = ({item}) => {
     </svg>
   );
   return (
-    <div className="card card-compact w-96 bg-[#404040] shadow-xl">
+    <div className="card card-compact w-full bg-[#404040] shadow-xl">
       <figure>
         <motion.img whileHover={{scale: 0.9}}
           src={item.imgUrl}

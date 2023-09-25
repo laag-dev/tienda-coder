@@ -75,19 +75,29 @@ export const Home = () => {
 
       {/* Trending Products Section */}
       <section className="bg-[#f3e9dc] py-8">
-        <h1 className="text-center text-5xl font-bold text-black">
+      <div className="container mx-auto text-center">
+        <h1
+          
+          className="text-3xl md:text-5xl font-bold text-black mb-4"
+        >
           Productos en tendencia
         </h1>
         <ProductsList data={trendingProducts} />
-      </section>
+      </div>
+    </section>
 
       {/* Bestsellers Section */}
-      <section className="bg-[#f3e9dc] py-8">
-        <h1 className="text-center text-5xl font-bold text-black">
+      <section className="bg-[#f3e9dc] ">
+      <div className="container mx-auto text-center">
+        <h1
+          
+          className="text-3xl md:text-5xl font-bold text-black mb-4"
+        >
           Los más vendidos
         </h1>
         <ProductsList data={bestSalesProducts} />
-      </section>
+      </div>
+    </section>
 
       {/* Bestsellers Section */}
       <section className="bg-white py-8 text-black">
