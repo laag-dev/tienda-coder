@@ -22,15 +22,15 @@ export const ProductCard = ({item}) => {
           alt="Shoes"
         />
       </figure>
-      <div className="card-body bg-white ">
+      <div className="card-body bg-white items-center ">
         <h2 className="card-title  text-black"><Link to={`/shop/${item.id}`}>{item.productName}</Link></h2>
-        <p className="italic text-black font-bold  text-sm">{item.category}</p>
+        <p className="italic text-black font-bold  text-sm">Categoría: {item.category}</p>
         <p className="text-black  text-xl">{item.shortDesc}</p>
-        <p className="font-bold text-black text-xl">${item.price}</p>
+        <p className="font-bold text-black text-xl">Precio: ${item.price}</p>
         <div className="card-actions justify-end">
           <button className="button">
-            {icon}
-            Agregar al carrito
+            {/* {icon} */}
+            Ir a comprar
           </button>
         </div>
       </div>

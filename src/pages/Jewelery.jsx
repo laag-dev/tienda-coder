@@ -4,22 +4,23 @@ import { ProductsList } from "../components/UI/ProductsList";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
+
 export const Jewelery = () => {
   // Defining local state for
-  const [jeweleryProducts, setJeweleryProducts] = useState([]);
+  const [jewelerysProducts, setJewelerysProducts] = useState([]);
   // Filtering the products and updating the data state
   useEffect(() => {
-    const filteredJeweleryProducts = products.filter(
+    const filteredJewelerysProducts = products.filter(
       (item) => item.category === "watch"
     );
 
-    setJeweleryProducts(filteredJeweleryProducts);
+    setJewelerysProducts(filteredJewelerysProducts);
   }, []);
 
   return (
     // Jewelery categories
 
-    <section className="bg-[#f3e9dc] py-8">
+    <section className="bg-[#f3e9dc] py-16">
       <div className="container mx-auto text-center">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
@@ -36,7 +37,7 @@ export const Jewelery = () => {
           className="bg-[#af8970]  h-1 mx-auto mb-4"
         ></motion.div>
         <div>
-          <ProductsList data={jeweleryProducts} />
+          <ProductsList data={jewelerysProducts} />
         </div>
       </div>
     </section>

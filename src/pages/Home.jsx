@@ -7,6 +7,7 @@ import { products } from "../assets/Products";
 import { ProductsList } from "../components/UI/ProductsList";
 import counterImg from "../assets/images/counter-timer-img.png";
 import { Clock } from "../components/UI/Clock";
+import { Banner } from "../components/header/Banner";
 
 export const Home = () => {
   // Defining local state for
@@ -26,6 +27,8 @@ export const Home = () => {
   }, []);
 
   return (
+    <>
+    <Banner/>
     <div className="min-h-screen bg-white shadow">
       <Services />
 
@@ -69,7 +72,7 @@ export const Home = () => {
       </div>
 
       {/* Bestsellers Section */}
-      <section className="bg-[#f3e9dc] py-8">
+      <section className="bg-[#f3e9dc] py-8 md:h-[90vh]">
         <div className="container mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
@@ -90,7 +93,7 @@ export const Home = () => {
       </section>
 
       {/* Limited Offer Section*/}
-      <section className="bg-white py-8 text-black">
+      <section className="bg-white py-8 text-black h-[40vh]">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 items-center">
             <div className="md:col-span-2 lg:col-span-1">
@@ -116,5 +119,6 @@ export const Home = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
