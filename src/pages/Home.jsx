@@ -93,7 +93,7 @@ export const Home = () => {
       </section>
 
       {/* Limited Offer Section*/}
-      <section className="bg-white py-8 text-black h-[40vh]">
+      <section className="bg-white py-8 text-black md:h-[40vh]">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 items-center">
             <div className="md:col-span-2 lg:col-span-1">
