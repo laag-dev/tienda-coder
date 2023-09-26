@@ -17,12 +17,17 @@ export const Navbar = () => {
       display: "Inicio",
     },
     {
-      path: "shop",
-      display: "Tienda",
+      path: "electronics",
+      display: "Electrónicos",
     },
     {
-      path: "cart",
-      display: "Carrito",
+      path: "jewelery",
+      display: "Joyería",
+    },
+
+    {
+      path: "furniture",
+      display: "Muebles",
     },
   ];
 

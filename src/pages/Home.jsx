@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Services } from "../Service/Services";
 import { products } from "../assets/Products";
-import { filterProps } from "framer-motion";
 import { ProductsList } from "../components/UI/ProductsList";
 import counterImg from "../assets/images/counter-timer-img.png";
 import { Clock } from "../components/UI/Clock";
@@ -12,38 +11,18 @@ import { Clock } from "../components/UI/Clock";
 export const Home = () => {
   // Defining local state for
 
-  const [trendingProducts, setTrendingProducts] = useState([]);
   const [bestSalesProducts, setBestSalesProducts] = useState([]);
-  const [mobileProducts, setMobileProducts] = useState([]);
-  const [wirelessProducts, setWirelessProducts] = useState([]);
-  const [popularProducts, setPopularProducts] = useState([]);
 
   // Home page + year
   const year = new Date().getFullYear();
 
   // Filtering the products and updating the data state
   useEffect(() => {
-    const filteredTrendingProducts = products.filter(
+    const filteredBestSalesProducts = products.filter(
       (item) => item.category === "chair"
     );
-    const filteredBestSalesProducts = products.filter(
-      (item) => item.category === "sofa"
-    );
-    const filteredMobileProducts = products.filter(
-      (item) => item.category === "mobile"
-    );
-    const filteredWirelessProducts = products.filter(
-      (item) => item.category === "wireless"
-    );
-    const filteredPopularProducts = products.filter(
-      (item) => item.category === "watch"
-    );
 
-    setTrendingProducts(filteredTrendingProducts);
     setBestSalesProducts(filteredBestSalesProducts);
-    setMobileProducts(filteredMobileProducts);
-    setWirelessProducts(filteredWirelessProducts);
-    setPopularProducts(filteredPopularProducts);
   }, []);
 
   return (
@@ -89,47 +68,26 @@ export const Home = () => {
         </div>
       </div>
 
-      {/* Trending Products Section */}
-      <section className="bg-[#f3e9dc] py-8">
-      <div className="container mx-auto text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }} // Animación inicial
-          animate={{ opacity: 1, y: 0 }} // Animación al entrar
-          transition={{ duration: 0.5 }} // Duración de la animación
-          className="text-3xl md:text-5xl font-bold text-black mb-2"
-        >
-          Productos en tendencia
-        </motion.h1>
-        <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: "30%" }}
-          transition={{ duration: 0.5, delay: 0.5 }} 
-          className="bg-[#af8970] h-1 mx-auto mb-4"
-        ></motion.div>
-        <ProductsList data={trendingProducts} />
-      </div>
-    </section>
-
       {/* Bestsellers Section */}
-      <section className="bg-[#f3e9dc] py-2">
-      <div className="container mx-auto text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-3xl md:text-5xl font-bold text-black mb-2"
-        >
-          Los más vendidos
-        </motion.h1>
-        <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: "30%" }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="bg-[#af8970]  h-1 mx-auto mb-4"
-        ></motion.div>
-        <ProductsList data={bestSalesProducts} />
-      </div>
-    </section>
+      <section className="bg-[#f3e9dc] py-8">
+        <div className="container mx-auto text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-3xl md:text-5xl font-bold text-black mb-2"
+          >
+            Los más vendidos
+          </motion.h1>
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "30%" }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="bg-[#af8970]  h-1 mx-auto mb-4"
+          ></motion.div>
+          <ProductsList data={bestSalesProducts} />
+        </div>
+      </section>
 
       {/* Limited Offer Section*/}
       <section className="bg-white py-8 text-black">
@@ -146,7 +104,7 @@ export const Home = () => {
                 <Clock />
                 <div>
                   <motion.button whileTap={{ scale: 1.2 }} className="button">
-                    <Link to="/shop">Visita la tienda</Link>
+                    <Link to="/furniture">Visita la tienda</Link>
                   </motion.button>
                 </div>
               </div>
@@ -157,52 +115,6 @@ export const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* New arrivals Section */}
-      <section className="bg-[#f3e9dc] py-8">
-      <div className="container mx-auto text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-3xl md:text-5xl font-bold text-black mb-2"
-        >
-          Nuevos productos
-        </motion.h1>
-        <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: "30%" }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="bg-[#af8970]  h-1 mx-auto mb-4"
-        ></motion.div>
-        <div>
-        <ProductsList data={mobileProducts.concat(wirelessProducts)}/>
-        </div>
-      </div>
-    </section>
-
-    {/* Popular categories Section */}
-    <section className="bg-[#f3e9dc] py-8">
-      <div className="container mx-auto text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-3xl md:text-5xl font-bold text-black mb-2"
-        >
-          Categorías populares
-        </motion.h1>
-        <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: "30%" }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="bg-[#af8970]  h-1 mx-auto mb-4"
-        ></motion.div>
-        <div>
-        <ProductsList data={popularProducts}/>
-        </div>
-      </div>
-    </section>
     </div>
   );
 };
