@@ -59,7 +59,7 @@ export const Home = () => {
             tecnológica!
           </p>
           <button className="button">
-            <Link to="/shop">Ir a la tienda</Link>
+            <Link to="/electronics">Ir a la tienda</Link>
           </button>
         </div>
         <div className="md:w-1/2 p-4">
@@ -72,7 +72,7 @@ export const Home = () => {
       </div>
 
       {/* Bestsellers Section */}
-      <section className="bg-[#f3e9dc] py-8 md:h-[90vh]">
+      <section className="bg-[#f3e9dc] py-8 md:h-[95vh]">
         <div className="container mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
@@ -107,7 +107,7 @@ export const Home = () => {
                 <Clock />
                 <div>
                   <motion.button whileTap={{ scale: 1.2 }} className="button">
-                    <Link to="/furniture">Visita la tienda</Link>
+                    <Link to="/furniture">Comprar</Link>
                   </motion.button>
                 </div>
               </div>
