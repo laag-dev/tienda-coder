@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Services } from "../Service/Services";
 import { products } from "../assets/Products";
-import { ProductsList } from "../components/UI/ProductsList";
+import { ProductsList } from "../components/products/ProductsList";
 import counterImg from "../assets/images/counter-timer-img.png";
 import { Clock } from "../components/UI/Clock";
 import { Banner } from "../components/header/Banner";

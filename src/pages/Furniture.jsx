@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { products } from "../assets/Products";
-import { ProductsList } from "../components/UI/ProductsList";
+import { ProductsList } from "../components/products/ProductsList";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
