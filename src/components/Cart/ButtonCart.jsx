@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import 'remixicon/fonts/remixicon.css'
+import React, { useContext, useState } from "react";
+import { ListCartContext } from "../../context/ListCartContext";
+import "remixicon/fonts/remixicon.css";
 
 
-export const ButtonCart = () => {
+export const ButtonCart = ({id}) => {
   const icon = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -26,6 +27,7 @@ export const ButtonCart = () => {
     setCount(count + 1);
   };
 
+  let { addProduct } = useContext(ListCartContext);
 
   return (
     <div>
@@ -43,7 +45,12 @@ export const ButtonCart = () => {
       >
         +
       </button>
-      <button className="button mt-2 ml-2">
+      <button
+        className="button mt-2 ml-2"
+        id="addCart"
+        onClick={() => addProduct(id)}
+      >
+        {" "}
         <span>
           <i className="ri-shopping-cart-2-line"></i>
         </span>

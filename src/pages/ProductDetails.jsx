@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { products } from './../assets/Products';
 import { motion } from 'framer-motion';
-import { ButtonCart } from '../components/Cart/ButtonCart';
+import { ButtonCart } from '../components/cart/ButtonCart';
 
 
 export const ProductDetails = () => {
@@ -39,7 +39,7 @@ export const ProductDetails = () => {
         <p className="text-black text-lg md:text-xl mb-4">{product.description}</p>
         <p className="font-bold text-black text-xl mb-4">Precio: ${product.price}</p>
         <div className="card-actions flex flex-col md:flex-row justify-center md:justify-start">
-          <ButtonCart />
+        <ButtonCart id={id} />
         </div>
       </div>
     </div>

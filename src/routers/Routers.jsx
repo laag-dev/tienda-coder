@@ -8,7 +8,6 @@ import { Electronics } from "../pages/Electronics";
 import { ShoppingCart } from "../pages/ShoppingCart";
 
 
-
 export const Routers = () => {
   return (
     

@@ -46,7 +46,7 @@ export const Navbar = () => {
         <div className="navigation">
           <ul className="lg:flex gap-8 items-center">
             {nav__links.map((item) => (
-              <li className="navbarLi">
+              <li className="navbarLi" key={item.path}>
                 <NavLink to={item.path}>{item.display}</NavLink>
               </li>
             ))}
