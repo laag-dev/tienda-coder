@@ -1,73 +1,66 @@
 import React, { useContext } from "react";
-import { ControllerShowCartProvider } from "../components/cart/ContextCart";
 import { ListCartContext } from "../context/ListCartContext";
 
 export const ShoppingCart = () => {
-  const { cartShow, setCartShow } = useContext(ControllerShowCartProvider); // Cambia "controllerShowCart" a "ControllerShowCartProvider"
   const { listCart, clearCart } = useContext(ListCartContext);
 
-  const closeCart = () => {
-    setCartShow(cartShow === "none" ? "flex" : "none");
+  const calculateTotal = () => {
+    //calculo del total de precios de los productos
+    return listCart.reduce(
+      (total, product) => total + product.price * product.quantity,
+      0
+    );
   };
-
   return (
-    <div className={`cart ${cartShow}`}>
-      <div className="cerrar">
-        <button className="close" onClick={closeCart}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 text-black"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M13.293 6.293a1 1 0 011.414 1.414L11.414 10l2.293 2.293a1 1 0 01-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 01-1.414-1.414L8.586 10 6.293 7.707a1 1 0 011.414-1.414L10 8.586l2.293-2.293z"
-              clipRule="evenodd"
+    <div className="bg-white p-4 h-[78vh] shadow-lg">
+      <h2 className="text-3xl border-b-2 md:text-5xl font-bold text-black mb-2 p-2 text-center">
+        Productos del carrito
+      </h2>
+      {listCart.map((item) => (
+        <div
+          key={item.id}
+          className="flex items-center justify-between border-b-2 py-2"
+        >
+          <div className="flex items-center space-x-4">
+            <img
+              src={item.imgUrl}
+              alt={`Imagen de ${item.title}`}
+              className="w-16 h-16 rounded-full"
             />
-          </svg>
-        </button>
-      </div>
-
-      <div className="containerItemsCart">
-        {listCart.length === 0 ? (
-          <span className="emptyCart">
-            Tu carrito está vacío, ¡llénalo!
-          </span>
-        ) : (
-          listCart.map((producto) => (
-            <ItemCart
-              key={producto.id}
-              id={producto.id}
-              title={producto.title}
-              image={producto.imageProduct.firtsImage}
-              quantity={producto.quantity}
-              price={producto.price}
-            />
-          ))
-        )}
-      </div>
-
-      <div className="TerminarCompra">
-        <button className="terminar bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Terminar compra
-        </button>
-
-        <button className="clear" onClick={clearCart}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 text-black"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M5.293 6.293a1 1 0 011.414-1.414L10 8.586l3.293-3.293a1 1 0 111.414 1.414L11.414 10l3.293 3.293a1 1 0 11-1.414 1.414L10 11.414l-3.293 3.293a1 1 0 01-1.414-1.414L8.586 10 5.293 6.293z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </button>
-      </div>
+            <div>
+              <h3 className="text-lg font-semibold">{item.title}</h3>
+              <p className="text-black text-lg md:text-xl mb-4">
+                Cantidad: {item.quantity}
+              </p>
+              <p className="text-black text-lg md:text-xl mb-4">
+                Precio: ${item.price}
+              </p>
+              <p className="text-black text-lg md:text-xl mb-4">
+                Subtotal: ${item.price * item.quantity}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+      {listCart.length > 0 && (
+        <div className="mt-4">
+          <p className="font-bold text-black text-xl mb-4">
+            Total: ${calculateTotal()}
+          </p>
+          <div className="flex justify-end mt-4 ">
+            {/* Vació carrito */}
+            <button onClick={() => clearCart()} className="button mr-4">
+              Vaciar carrito
+            </button>
+            <button className="button">Finalizar compra</button>
+          </div>
+        </div>
+      )}
+      {listCart.length === 0 && (
+        <p className="font-bold items-center text-black text-xl mb-4">
+          Tu carrito está vacío.
+        </p>
+      )}
     </div>
   );
 };

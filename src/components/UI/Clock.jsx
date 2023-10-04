@@ -3,7 +3,8 @@ import  { useState, useEffect } from "react";
 export const Clock = () => {
 
 
-//Countdown that calculates and displays the remaining days, hours, minutes, and seconds until a specific target date.
+//Contador regresivo que calcula y muestra los días, horas, minutos y segundos restantes hasta una fecha objetivo específica."
+
   const [days, setDays] = useState();
   const [hours, setHours] = useState();
   const [minutes, setMinutes] = useState();
@@ -12,7 +13,7 @@ export const Clock = () => {
   let interval;
 
   const countDown = () => {
-    const destination = new Date("Oct 25, 2023").getTime();
+    const destination = new Date("Oct 30, 2023").getTime();
 
     interval = setInterval(() => {
       const now = new Date().getTime();

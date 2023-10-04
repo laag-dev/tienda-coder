@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import { products } from "../assets/Products";
 import { ProductsList } from "../components/products/ProductsList";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-
 export const Jewelery = () => {
-  // Defining local state for
   const [jewelerysProducts, setJewelerysProducts] = useState([]);
-  // Filtering the products and updating the data state
+
+  //filtro por categorías
   useEffect(() => {
     const filteredJewelerysProducts = products.filter(
       (item) => item.category === "watch"
@@ -18,8 +16,6 @@ export const Jewelery = () => {
   }, []);
 
   return (
-    // Jewelery categories
-
     <section className="bg-[#f3e9dc] py-16">
       <div className="container mx-auto text-center">
         <motion.h1

@@ -5,28 +5,23 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export const Electronics = () => {
-
+  //filtro por categorías
   const [mobileProducts, setMobileProducts] = useState([]);
   const [wirelessProducts, setWirelessProducts] = useState([]);
 
   useEffect(() => {
-  
     const filteredMobileProducts = products.filter(
       (item) => item.category === "mobile"
     );
     const filteredWirelessProducts = products.filter(
       (item) => item.category === "wireless"
     );
-  
-   
+
     setMobileProducts(filteredMobileProducts);
     setWirelessProducts(filteredWirelessProducts);
-   
   }, []);
 
   return (
-
-    // New arrivals Section
     <section className="bg-[#f3e9dc] py-8">
       <div className="container mx-auto text-center">
         <motion.h1
@@ -44,9 +39,10 @@ export const Electronics = () => {
           className="bg-[#af8970]  h-1 mx-auto mb-4"
         ></motion.div>
         <div>
-        <ProductsList data={mobileProducts.concat(wirelessProducts)}/>
+          {/* Concateno los filtros para que quede bien organizadas las card */}
+          <ProductsList data={mobileProducts.concat(wirelessProducts)} />
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

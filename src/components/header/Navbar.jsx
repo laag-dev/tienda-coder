@@ -63,19 +63,19 @@ export const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#af8970] rounded-box w-52 text-black"
+              className="menu menu-sm mt-3 z-[1] p-2 shadow  dropdown-content w-80 bg-white  text-black"
             >
               <li>
-                <a className="justify-between">
+                <a className="justify-between text-black font-semibold">
                   Registro
-                  <span className="badge">New</span>
+                  <span className="badge bg-[#af8970] text-black font-semibold">New</span>
                 </a>
               </li>
               <li>
-                <a>Ingreso</a>
+                <a className="text-black font-semibold">Ingreso</a>
               </li>
               <li>
-                <a>Configuración</a>
+                <a className="text-black font-semibold">Configuración</a>
               </li>
             </ul>
           </div>

@@ -22,7 +22,7 @@ export const ProductDetails = () => {
 
   
   return (
-    <div className="py-8 px-4 sm:px-8 md:h-[78vh] bg-[#f3e9dc] flex flex-col md:flex-row items-center">
+    <div className="py-8 px-4 sm:px-8 md:h-[78vh] sm:h-[100vh] bg-[#f3e9dc] flex flex-col md:flex-row items-center">
       <figure className="w-full md:w-1/3">
         <motion.img whileHover={{ scale: 0.9 }} src={product.imgUrl} alt={product.productName} className="w-full" />
       </figure>

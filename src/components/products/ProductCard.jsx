@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ListCartContext } from "../../context/ListCartContext";
-import React, { useContext } from "react"; // Asegúrate de importar React y useContext
+import React, { useContext } from "react"; 
 
 export const ProductCard = ({ item }) => {
-  const { addProduct } = useContext(ListCartContext); // Extrae addProduct del contexto
+  const { addProduct } = useContext(ListCartContext); 
 
   return (
+    
+    //Diseño de las card 
+
     <div className="card card-compact w-full bg-[#404040] shadow-xl">
       <figure>
         <Link to={`/products/${item.id}`}>
@@ -30,7 +33,7 @@ export const ProductCard = ({ item }) => {
           </button>
           <button
             className="button ml-2"
-            onClick={() => addProduct(item.id)} // Usar item.id en lugar de id
+            onClick={() => addProduct(item.id)}
           >
             <i className="ri-shopping-cart-2-line"></i>
           </button>

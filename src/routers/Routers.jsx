@@ -1,11 +1,12 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Home } from "../pages/Home";
 import { ProductDetails } from "../pages/ProductDetails";
-import { Login } from "../pages/Login";
+import { Checkout } from "../pages/Checkout";
 import { Jewelery } from "../pages/Jewelery";
 import { Furniture } from "../pages/Furniture";
 import { Electronics } from "../pages/Electronics";
 import { ShoppingCart } from "../pages/ShoppingCart";
+
 
 
 export const Routers = () => {
@@ -19,7 +20,7 @@ export const Routers = () => {
       <Route path="furniture" element={<Furniture/>} />
       <Route path="products/:id" element={<ProductDetails />} />
       <Route path="cart" element={<ShoppingCart/>} />
-      <Route path="login" element={<Login />} />
+      <Route path="login" element={<Checkout/>} />
     </Routes>
   );
 };
