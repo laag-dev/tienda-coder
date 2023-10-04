@@ -1,11 +1,11 @@
-import React, { useState } from "react";
 import logo from "@/assets/logo.png";
 import avatar from "@/assets/avatar.jpeg";
-import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { CartWidget } from "./CartWidget";
+ 
 
-
-export const Navbar = () => {
+export const Navbar = ({ openLoginModal }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -31,7 +31,6 @@ export const Navbar = () => {
     },
   ];
 
-
   return (
     <div className="w-full border-b-[1px] border-gray-950 text-black bg-white sticky top-0 z-50">
       <div className="md:container md:mx-auto px-4 flex items-center justify-between">
@@ -50,7 +49,6 @@ export const Navbar = () => {
                 <NavLink to={item.path}>{item.display}</NavLink>
               </li>
             ))}
-            
           </ul>
         </div>
         <div className="lg:flex gap-8 items-center">
@@ -68,11 +66,15 @@ export const Navbar = () => {
               <li>
                 <a className="justify-between text-black font-semibold">
                   Registro
-                  <span className="badge bg-[#af8970] text-black font-semibold">New</span>
+                  <span className="badge bg-[#af8970] text-black font-semibold">
+                    New
+                  </span>
                 </a>
               </li>
               <li>
-                <a className="text-black font-semibold">Ingreso</a>
+                <a className="text-black font-semibold" onClick={openLoginModal}>
+                  <Link to={"/login"} >Ingreso</Link>
+                </a>
               </li>
               <li>
                 <a className="text-black font-semibold">Configuración</a>
