@@ -77,7 +77,7 @@ export const Navbar = ({ openLoginModal, openRegistrationModal }) => {
                 </a>
               </li>
               <li>
-                <a className="text-black font-semibold">Configuración</a>
+                <a className="text-black font-semibold">Cerrar sesión</a>
               </li>
             </ul>
           </div>
