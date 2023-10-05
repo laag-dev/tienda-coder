@@ -13,4 +13,7 @@
   .button {
     @apply btn bg-[#AF8970] text-black hover:bg-black hover:text-white;
   }
+  
 }
+
+

@@ -48,7 +48,7 @@ export const ShoppingCart = () => {
             Total: ${calculateTotal()}
           </p>
           <div className="flex justify-end mt-4 ">
-            {/* Vació carrito */}
+            
             <button onClick={() => clearCart()} className="button mr-4">
               Vaciar carrito
             </button>

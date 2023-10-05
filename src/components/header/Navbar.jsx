@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import { CartWidget } from "./CartWidget";
  
 
-export const Navbar = ({ openLoginModal }) => {
+export const Navbar = ({ openLoginModal, openRegistrationModal }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -64,8 +64,8 @@ export const Navbar = ({ openLoginModal }) => {
               className="menu menu-sm mt-3 z-[1] p-2 shadow  dropdown-content w-80 bg-white  text-black"
             >
               <li>
-                <a className="justify-between text-black font-semibold">
-                  Registro
+                <a className="justify-between text-black font-semibold" onClick={openRegistrationModal} >
+                 <Link to="/registration">Registro</Link>
                   <span className="badge bg-[#af8970] text-black font-semibold">
                     New
                   </span>
@@ -73,7 +73,7 @@ export const Navbar = ({ openLoginModal }) => {
               </li>
               <li>
                 <a className="text-black font-semibold" onClick={openLoginModal}>
-                  <Link to={"/login"} >Ingreso</Link>
+                  <Link to="/login" >Ingreso</Link>
                 </a>
               </li>
               <li>
@@ -81,7 +81,7 @@ export const Navbar = ({ openLoginModal }) => {
               </li>
             </ul>
           </div>
-        </div>
+        </div> 
       </div>
     </div>
   );
