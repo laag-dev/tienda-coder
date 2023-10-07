@@ -3,31 +3,27 @@ import Modal from "react-modal";
 import { MdClose } from "react-icons/md";
 import { useAuth } from "../context/AuthContext";
 
-
 export const UserLogin = ({ isOpenL, onCloseL }) => {
   const auth = useAuth();
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       await auth.login(userEmail, password);
-      // El inicio de sesión fue exitoso, puedes ejecutar onCloseL() aquí
-      alert("¡El inicio de sesión fue exitoso!")
+
+      alert("¡El inicio de sesión fue exitoso!");
       onCloseL();
     } catch (error) {
-      alert("Ingrese un usuario o contraseña valido")
-      // Muestra un mensaje de error al usuario, por ejemplo, en un componente de error o una alerta.
+      alert("Ingrese un usuario o contraseña valido");
     }
   };
 
   const handleGoogle = (e) => {
     e.preventDefault();
-    auth.loginWidthGoogle()
-
-  }
+    auth.loginWidthGoogle();
+  };
 
   const customStyles = {
     content: {
@@ -89,7 +85,6 @@ export const UserLogin = ({ isOpenL, onCloseL }) => {
             id="password"
             placeholder="••••••••"
             className="form-input w-full px-3 py-2 text-black rounded-md border focus:ring bg-white"
-            required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -102,7 +97,6 @@ export const UserLogin = ({ isOpenL, onCloseL }) => {
                 type="checkbox"
                 value=""
                 className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-                required
               />
             </div>
             <label

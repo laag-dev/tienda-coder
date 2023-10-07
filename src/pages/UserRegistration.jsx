@@ -12,10 +12,9 @@ export const UserRegistration = ({ isOpen, onClose }) => {
     e.preventDefault();
     try {
       auth.register(emailRegister, passwordRegister);
-      alert("¡Registro exitoso!")
+      alert("¡Registro exitoso!");
     } catch (error) {
-      alert("Ingrese un email o contraseña valido")
-      // Muestra un mensaje de error al usuario
+      alert("Ingrese un email o contraseña valido");
     }
   };
   const customStyles = {
@@ -83,7 +82,7 @@ export const UserRegistration = ({ isOpen, onClose }) => {
         </div>
         <div>
           <h4 className="text-[#AF8970]">
-          Mínimo 6 caracteres con al menos una mayúscula
+            Mínimo 6 caracteres con al menos una mayúscula
           </h4>
         </div>
         <button

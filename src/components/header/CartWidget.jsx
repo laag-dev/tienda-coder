@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const CartWidget = () => {
   const { listCart } = useContext(ListCartContext); // Obtengo la lista de productos en el carrito desde el contexto
-  const [totalProducts, setTotalProducts] = useState(0); // Estado para la cantidad total de productos
+  const [totalProducts, setTotalProducts] = useState(0);
 
   // Calculo la cantidad total de productos y el subtotal
   const subtotal = listCart.reduce(
@@ -20,7 +20,7 @@ export const CartWidget = () => {
       0
     );
     setTotalProducts(newTotalProducts);
-  }, [listCart]); 
+  }, [listCart]);
 
   return (
     <div className="flex-none">
@@ -50,7 +50,7 @@ export const CartWidget = () => {
                 {listCart.map((product) => (
                   <div key={product.id} className="flex items-center space-x-2">
                     <img
-                      src={product.imgUrl} 
+                      src={product.imgUrl}
                       alt={product.title}
                       className="w-8 h-8 rounded-full"
                     />

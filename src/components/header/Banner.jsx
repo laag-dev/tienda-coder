@@ -3,7 +3,6 @@ import banner1 from "@/assets/banner1.png";
 import banner2 from "@/assets/banner2.png";
 
 export const Banner = () => {
-
   // Carrusel de imágenes hechas para la tienda ficticia
   return (
     <div className="carousel w-full">

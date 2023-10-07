@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { ListCartContext } from "../../context/ListCartContext";
 import "remixicon/fonts/remixicon.css";
 
-export  const ButtonCart = ({ id }) => {
+export const ButtonCart = ({ id }) => {
   const icon = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +15,7 @@ export  const ButtonCart = ({ id }) => {
   const [count, setCount] = useState(1);
   const { addProduct } = useContext(ListCartContext);
 
-  // resta la cantidad de productos al carrito 
+  // resta la cantidad de productos al carrito
   const decrease = () => {
     if (count > 1) {
       setCount((prevCount) => prevCount - 1);

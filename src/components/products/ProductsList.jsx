@@ -2,9 +2,7 @@ import React from "react";
 import { ProductCard } from "./ProductCard";
 
 export const ProductsList = ({ data }) => {
-
   return (
-    
     //Container de las card
 
     <div className="bg-[#f3e9dc] min-h-screen py-12 px-4 sm:px-8">

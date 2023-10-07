@@ -9,9 +9,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 
-
 export const authContext = createContext();
-
 
 export const useAuth = () => {
   const context = useContext(authContext);
@@ -21,11 +19,9 @@ export const useAuth = () => {
   return context;
 };
 
-// Devuelve el objeto de contexto creado por el hook
-
 export function AuthProvider({ children }) {
   const [user, setUser] = useState("");
- 
+
   useEffect(() => {
     const subscribed = onAuthStateChanged(auth, (currentUser) => {
       if (!currentUser) {
@@ -37,9 +33,9 @@ export function AuthProvider({ children }) {
     });
     return () => subscribed();
   }, []);
-  
-  // Función que toma dos argumentos, 'email' y 'password', y luego llama a la función 'createUserWithEmailAndPassword' con el objeto 'auth' y los argumentos 'email' y 'password'
- 
+
+  // Función que toma dos argumentos y luego llama a la función con el objeto
+
   const register = async (email, password) => {
     const response = await createUserWithEmailAndPassword(
       auth,
@@ -48,17 +44,17 @@ export function AuthProvider({ children }) {
     );
     console.log(response);
   };
- 
+
   const login = async (email, password) => {
     const response = await signInWithEmailAndPassword(auth, email, password);
     console.log(response);
   };
- 
+
   const loginWithGoogle = async () => {
     const responseGoogle = new GoogleAuthProvider();
     return await signInWithPopup(auth, responseGoogle);
   };
- 
+
   const logout = async () => {
     const response = await signOut(auth);
     console.log(response);

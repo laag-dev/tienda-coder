@@ -1,15 +1,12 @@
 import React from "react";
-import { Layout } from './components/layout/Layout';
-import { Home } from "./pages/Home";
+import { Layout } from "./components/layout/Layout";
 
 function App() {
   return (
-     <>
-     <Layout/>
-     </>
-     
+    <>
+      <Layout />
+    </>
   );
 }
-
 
 export default App;

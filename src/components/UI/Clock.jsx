@@ -1,9 +1,7 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export const Clock = () => {
-
-
-//Contador regresivo que calcula y muestra los días, horas, minutos y segundos restantes hasta una fecha objetivo específica."
+  //Contador regresivo que calcula y muestra los días, horas, minutos y segundos restantes hasta una fecha objetivo específica."
 
   const [days, setDays] = useState();
   const [hours, setHours] = useState();

@@ -9,8 +9,6 @@ import { ShoppingCart } from "../pages/ShoppingCart";
 import { UserLogin } from "../pages/UserLogin";
 import { UserRegistration } from "../pages/UserRegistration";
 
-
-
 export const Routers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // Define isModalOpen y su estado inicial
 
@@ -21,18 +19,23 @@ export const Routers = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-  
+
   return (
-    
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="electronics" element={<Electronics/>} />
-      <Route path="jewelery" element={<Jewelery/>} />
-      <Route path="furniture" element={<Furniture/>} />
+      <Route path="electronics" element={<Electronics />} />
+      <Route path="jewelery" element={<Jewelery />} />
+      <Route path="furniture" element={<Furniture />} />
       <Route path="products/:id" element={<ProductDetails />} />
-      <Route path="cart" element={<ShoppingCart/>} />
-      <Route path="login" element={<UserLogin isOpenL={isModalOpen} onCloseL={closeModal} />}/>
-      <Route path="registration" element={<UserRegistration isOpen={isModalOpen} onClose={closeModal} />}/>
+      <Route path="cart" element={<ShoppingCart />} />
+      <Route
+        path="login"
+        element={<UserLogin isOpenL={isModalOpen} onCloseL={closeModal} />}
+      />
+      <Route
+        path="registration"
+        element={<UserRegistration isOpen={isModalOpen} onClose={closeModal} />}
+      />
     </Routes>
   );
 };
