@@ -26,7 +26,6 @@ export const Routers = () => {
     
     <Routes>
       <Route path="/" element={<home/>} />
-      <Route path="home" element={<Home />} />
       <Route path="electronics" element={<Electronics/>} />
       <Route path="jewelery" element={<Jewelery/>} />
       <Route path="furniture" element={<Furniture/>} />
