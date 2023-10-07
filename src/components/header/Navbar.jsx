@@ -13,7 +13,7 @@ export const Navbar = ({ openLoginModal, openRegistrationModal }) => {
 
   const nav__links = [
     {
-      path: "home",
+      path: "/",
       display: "Inicio",
     },
     {
