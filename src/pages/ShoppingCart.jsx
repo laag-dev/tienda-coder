@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import { useContext, useState } from "react";
 import { ListCartContext } from "../context/ListCartContext";
 
 export const ShoppingCart = () => {
   const { listCart, clearCart } = useContext(ListCartContext);
+  const [showMessage, setShowMessage] = useState(false);
 
   const calculateTotal = () => {
     //calculo del total de precios de los productos
@@ -10,6 +11,11 @@ export const ShoppingCart = () => {
       (total, product) => total + product.price * product.quantity,
       0
     );
+  };
+
+  const showMessageHandler = () => {
+    // Cambiar el estado para mostrar el mensaje
+    setShowMessage(true);
   };
   return (
     <div className="bg-white p-4  shadow-lg">
@@ -52,10 +58,17 @@ export const ShoppingCart = () => {
             <button onClick={() => clearCart()} className="button mr-4">
               Vaciar carrito
             </button>
-            <button className="button">Finalizar compra</button>
+            <button className="button" onClick={showMessageHandler}>Finalizar compra</button>
           </div>
         </div>
       )}
+      {/* Mostrar el mensaje si showMessage es true */}
+      {showMessage && (
+        <p className="font-bold text-black text-xl mb-4">
+          ¡Compra finalizada con éxito!
+        </p>
+      )}
+      {/* Vacía carrito */}
       {listCart.length === 0 && (
         <p className="font-bold items-center text-black text-xl mb-4">
           Tu carrito está vacío.

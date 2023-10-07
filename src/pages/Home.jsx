@@ -8,6 +8,8 @@ import { ProductsList } from "../components/products/ProductsList";
 import counterImg from "../assets/images/counter-timer-img.png";
 import { Clock } from "../components/UI/Clock";
 import { Banner } from "../components/header/Banner";
+import { Header } from "../components/header/Header";
+import { Footer } from "../components/footer/Footer";
 
 export const Home = () => {
   const [bestSalesProducts, setBestSalesProducts] = useState([]);
@@ -25,6 +27,7 @@ export const Home = () => {
 
   return (
     <>
+      <Header/>
       <Banner />
       <div className="min-h-screen bg-white shadow">
         <Services />
@@ -69,7 +72,7 @@ export const Home = () => {
         </div>
 
         {/* Sección de los más vendidos*/}
-        <section className="bg-[#f3e9dc] py-8 md:h-[95vh]">
+        <section className="bg-[#f3e9dc] py-8 ">
           <div className="container mx-auto text-center">
             <motion.h1
               initial={{ opacity: 0, y: -20 }}
@@ -116,6 +119,7 @@ export const Home = () => {
           </div>
         </section>
       </div>
+      <Footer/>
     </>
   );
 };
