@@ -27,7 +27,6 @@ export const Home = () => {
 
   return (
     <>
-      <Header/>
       <Banner />
       <div className="min-h-screen bg-white shadow">
         <Services />
@@ -119,7 +118,6 @@ export const Home = () => {
           </div>
         </section>
       </div>
-      <Footer/>
     </>
   );
 };
