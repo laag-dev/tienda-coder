@@ -22,6 +22,7 @@ import productImg22 from "../assets/images/watch-04.jpg";
 import productImg23 from "../assets/images/wireless-01.png";
 import productImg25 from "../assets/images/wireless-03.png";
 
+
 export const products = [
   {
     id: "01",
