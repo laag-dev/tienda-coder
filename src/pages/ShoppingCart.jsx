@@ -12,7 +12,7 @@ export const ShoppingCart = () => {
     );
   };
   return (
-    <div className="bg-white p-4 h-[78vh] shadow-lg">
+    <div className="bg-white p-4  shadow-lg">
       <h2 className="text-3xl border-b-2 md:text-5xl font-bold text-black mb-2 p-2 text-center">
         Productos del carrito
       </h2>
