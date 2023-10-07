@@ -57,7 +57,7 @@ export const UserLogin = ({ isOpenL, onCloseL }) => {
         </button>
       </div>
       <h2 className="text-2xl border-b-2 md:text-3xl font-bold text-black mb-2 p-2 text-center">
-        Login
+        Iniciar sesión
       </h2>
       <form className="space-y-6 max-w-md mx-auto p-6 bg-[#404040] rounded-lg shadow-lg">
         <div className="mb-4">
