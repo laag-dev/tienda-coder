@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import home from "../assets/home.jpeg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Services } from "../Service/Services";
+import { Services } from "../service/Services";
 import { products } from "../assets/Products";
 import { ProductsList } from "../components/products/ProductsList";
 import counterImg from "../assets/images/counter-timer-img.png";
