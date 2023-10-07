@@ -1,39 +1,23 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import { MdClose } from "react-icons/md";
+import { useAuth } from "../context/AuthContext";
 
 export const UserRegistration = ({ isOpen, onClose }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const auth = useAuth();
+  const [emailRegister, setEmailRegister] = useState(" ");
+  const [passwordRegister, setPasswordRegister] = useState(" ");
 
-  const handleLogin = () => {
-    authenticate(username, password)
-      .then((success) => {
-        if (success) {
-          onClose(); // Cierra el modal cuando el inicio de sesión es exitoso
-        } else {
-          setError("Credenciales incorrectas. Por favor, inténtelo de nuevo.");
-        }
-      })
-      .catch((err) => {
-        setError("Error en la autenticación. Por favor, inténtelo de nuevo.");
-      });
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      auth.register(emailRegister, passwordRegister);
+      alert("¡Registro exitoso!")
+    } catch (error) {
+      alert("Ingrese un email o contraseña valido")
+      // Muestra un mensaje de error al usuario
+    }
   };
-
-  const authenticate = (username, password) => {
-    return new Promise((resolve, reject) => {
-      // Simulamos una solicitud a un servidor que verifica las credenciales
-      setTimeout(() => {
-        if (username === "usuario" && password === "contraseña") {
-          resolve(true); // Autenticación exitosa
-        } else {
-          resolve(false); // Autenticación fallida
-        }
-      }, 1000); // Simulamos una demora de 1 segundo para la solicitud
-    });
-  };
-
   const customStyles = {
     content: {
       top: "50%", // Centra verticalmente
@@ -67,60 +51,6 @@ export const UserRegistration = ({ isOpen, onClose }) => {
       <form className="space-y-6 max-w-md mx-auto p-6 bg-[#404040] rounded-lg shadow-lg">
         <div className="mb-4">
           <label
-            htmlFor="name"
-            className="block mb-2 text-sm font-semibold text-white"
-          >
-            Nombre:
-          </label>
-          <input
-            type="name"
-            name="name"
-            id="name"
-            className="form-input w-full px-3 py-2 text-black rounded-md border focus:ring bg-white "
-            placeholder="nombre"
-            required
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="name"
-            className="block mb-2 text-sm font-semibold text-white"
-          >
-            Apellido:
-          </label>
-          <input
-            type="lastname"
-            name="lastname"
-            id="lastname"
-            className="form-input w-full px-3 py-2 text-black rounded-md border focus:ring bg-white "
-            placeholder="apellido"
-            required
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="password"
-            className="block mb-2 text-sm font-semibold text-white"
-          >
-            Contraseña
-          </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="••••••••"
-            className="form-input w-full px-3 py-2 text-black rounded-md border focus:ring bg-white"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div className="mb-4">
-          <label
             htmlFor="email"
             className="block mb-2 text-sm font-semibold text-white"
           >
@@ -130,27 +60,38 @@ export const UserRegistration = ({ isOpen, onClose }) => {
             type="email"
             name="email"
             id="email"
+            onChange={(e) => setEmailRegister(e.target.value)}
             className="form-input w-full px-3 py-2 text-black rounded-md border focus:ring bg-white "
             placeholder="name@company.com"
-            required
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-
+        <div className="mb-4">
+          <label
+            htmlFor="password"
+            className="block mb-2 text-sm font-semibold text-white"
+          >
+            Contraseña:
+          </label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="••••••••"
+            onChange={(e) => setPasswordRegister(e.target.value)}
+            className="form-input w-full px-3 py-2 text-black rounded-md border focus:ring bg-white"
+          />
+        </div>
+        <div>
+          <h4 className="text-[#AF8970]">
+          Mínimo 6 caracteres con al menos una mayúscula
+          </h4>
+        </div>
         <button
           type="submit"
           className="w-full bg-[#AF8970] text-black hover:bg-black hover:text-white font-semibold py-2 rounded-md transition duration-300 "
-          onClick={handleLogin}
+          onClick={handleRegister}
         >
           Crear cuenta
-        </button>
-        <button
-          type="submit"
-          className="w-full bg-[#AF8970] text-black hover:bg-black hover:text-white font-semibold py-2 rounded-md transition duration-300 "
-          onClick={handleLogin}
-        >
-          Crear cuenta con Google
         </button>
       </form>
     </Modal>

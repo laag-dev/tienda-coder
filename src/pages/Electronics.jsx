@@ -1,13 +1,29 @@
 import { useEffect, useState } from "react";
-import { products } from "../assets/Products";
+
 import { ProductsList } from "../components/products/ProductsList";
-import { Link } from "react-router-dom";
+import { collection, getDocs} from "firebase/firestore";
+import { db } from "../firebase/firebaseConfig";
 import { motion } from "framer-motion";
 
 export const Electronics = () => {
+
   //filtro por categorías
   const [mobileProducts, setMobileProducts] = useState([]);
   const [wirelessProducts, setWirelessProducts] = useState([]);
+
+useEffect(() => {
+
+ //llamado a DB firebase
+ const productsRef = collection(db, "products")
+ getDocs(productsRef)
+ .then((resp) => {  
+  console.log(resp)  
+  
+   })
+
+
+})
+
 
   useEffect(() => {
     const filteredMobileProducts = products.filter(

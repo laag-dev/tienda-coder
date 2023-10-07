@@ -1,38 +1,33 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import { MdClose } from "react-icons/md";
+import { useAuth } from "../context/AuthContext";
+
 
 export const UserLogin = ({ isOpenL, onCloseL }) => {
-  const [username, setUsername] = useState("");
+  const auth = useAuth();
+  const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
-  const handleLogin = () => {
-    authenticate(username, password)
-      .then((success) => {
-        if (success) {
-          onClose(); // Cierra el modal cuando el inicio de sesión es exitoso
-        } else {
-          setError("Credenciales incorrectas. Por favor, inténtelo de nuevo.");
-        }
-      })
-      .catch((err) => {
-        setError("Error en la autenticación. Por favor, inténtelo de nuevo.");
-      });
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await auth.login(userEmail, password);
+      // El inicio de sesión fue exitoso, puedes ejecutar onCloseL() aquí
+      alert("¡El inicio de sesión fue exitoso!")
+      onCloseL();
+    } catch (error) {
+      alert("Ingrese un usuario o contraseña valido")
+      // Muestra un mensaje de error al usuario, por ejemplo, en un componente de error o una alerta.
+    }
   };
 
-  const authenticate = (username, password) => {
-    return new Promise((resolve, reject) => {
-      // Simulamos una solicitud a un servidor que verifica las credenciales
-      setTimeout(() => {
-        if (username === "usuario" && password === "contraseña") {
-          resolve(true); // Autenticación exitosa
-        } else {
-          resolve(false); // Autenticación fallida
-        }
-      }, 1000); // Simulamos una demora de 1 segundo para la solicitud
-    });
-  };
+  const handleGoogle = (e) => {
+    e.preventDefault();
+    auth.loginWidthGoogle()
+
+  }
 
   const customStyles = {
     content: {
@@ -78,9 +73,7 @@ export const UserLogin = ({ isOpenL, onCloseL }) => {
             id="email"
             className="form-input w-full px-3 py-2 text-black rounded-md border focus:ring bg-white "
             placeholder="name@company.com"
-            required
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setUserEmail(e.target.value)}
           />
         </div>
         <div className="mb-4">
@@ -138,16 +131,13 @@ export const UserLogin = ({ isOpenL, onCloseL }) => {
         <button
           type="submit"
           className="w-full bg-[#AF8970] text-black hover:bg-black hover:text-white font-semibold py-2 rounded-md transition duration-300 "
-          onClick={handleLogin}
+          onClick={handleGoogle}
         >
           Iniciar con Google
         </button>
         <div className="text-sm font-medium text-gray-500 dark:text-gray-300 text-center mt-4">
           No está registrado?
-          <a
-            
-            className=" hover:underline dark:text-[#af8970] font-semibold"
-          >
+          <a className=" hover:underline dark:text-[#af8970] font-semibold">
             Cree su cuenta
           </a>
         </div>
