@@ -1,8 +1,21 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Tienda Coder  - CoderHouse Final Project
 
-Currently, two official plugins are available:
+Tienda Code is a fictitious online store created to showcase my skills acquired during the CoderHouse React course. The store features a color palette, animations, a special offer countdown, category filtering, card rendering, product details, and a shopping cart. Designed with Tailwind CSS and React.js Vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+## Tech Stack
+
+**Client:** React, Redux, TailwindCSS,
+
+**Server:** Firebase,
+
+## Authors
+
+- [@laagdev](https://github.com/laag-dev)
+
+
+## 🛠 Skills
+Javascript, HTML, CSS, REACT, TAILWIND, 
+
