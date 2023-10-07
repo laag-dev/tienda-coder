@@ -2,8 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { products } from './../assets/Products';
 import { motion } from 'framer-motion';
-//import  ButtonCart  from "../components/cart/ButtonCart";
-import  { ButtonCart }  from './../components/cart/ButtonCart';
+import ButtonCart from '../components/cart/ButtonCart';
+
 
 
 export  const ProductDetails = () => {

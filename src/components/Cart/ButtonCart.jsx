@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { ListCartContext } from "../../context/ListCartContext";
 import "remixicon/fonts/remixicon.css";
 
-export const ButtonCart = ({ id }) => {
+ const ButtonCart = ({ id }) => {
   const icon = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -62,3 +62,4 @@ export const ButtonCart = ({ id }) => {
     </div>
   );
 };
+export default ButtonCart;
