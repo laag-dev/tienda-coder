@@ -5,9 +5,10 @@ I am a Full Stack Developer; my knowledge extends beyond code...
 
 # Tienda Coder - CoderHouse Final Project
 
-Tienda Code is a fictitious online store created to showcase the skills acquired during the CoderHouse React course. The store includes a color palette, animations, a special offer countdown, category filtering, card rendering, product details, user login and registration through Firebase, and a shopping cart. Designed with Tailwind CSS and React.js Vite.
 
+Tienda Code is a fictitious online store created to showcase the skills acquired during the CoderHouse React course. The store includes a color palette, animations, a special offer countdown, category filtering, card rendering, product details, user login and registration through Firebase, and a shopping cart. Designed with Tailwind CSS and React.js Vite.
 [View Demo](https://tienda-code.netlify.app/)
+
 ![Logo](https://github.com/laag-dev/tienda-coder/blob/master/src/assets/logo.png?raw=true)
 
 
