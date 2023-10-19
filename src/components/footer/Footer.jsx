@@ -1,9 +1,9 @@
 import React from "react";
-import laag from "@/assets/laagdev.jpg";
 import { SiLinkedin } from "react-icons/si";
 import { AiFillGithub } from "react-icons/ai";
 import { BsTwitch } from "react-icons/bs";
 import { TfiYoutube } from "react-icons/tfi";
+import  laag from '@/assets/laag.jpeg';
 
 export const Footer = () => {
   return (
